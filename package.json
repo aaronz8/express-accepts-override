@@ -1,0 +1,25 @@
+{
+  "name": "express-accepts-override",
+  "version": "1.0.0",
+  "description": "Middleware to override accepts header with query or url path file extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronz8/express-accepts-override.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "accept",
+    "content-type"
+  ],
+  "author": "AZhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronz8/express-accepts-override/issues"
+  },
+  "homepage": "https://github.com/aaronz8/express-accepts-override#readme"
+}
