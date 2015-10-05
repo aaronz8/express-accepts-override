@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/aaronz8/express-accepts-override/issues"
   },
-  "homepage": "https://github.com/aaronz8/express-accepts-override#readme"
+  "homepage": "https://github.com/aaronz8/express-accepts-override#readme",
+  "dependencies": {
+    "mime-types": "^2.1.7"
+  }
 }
