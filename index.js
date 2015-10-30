@@ -8,7 +8,7 @@ module.exports = function(options) {
 
   return function (req, res, next) {
     options = {
-      accepts: options.accepts || ['json', 'html', 'csv','txt'], // must be valid mime extensions
+      accepts: options.accepts || ['json', 'html', 'csv', 'txt'], // must be valid mime extensions
       query: options.query || 'format', // /path?format=csv
       resolveOrder: options.resolveOrder || ['suffix', 'query', 'header'] // will use first match
     }
@@ -26,7 +26,6 @@ module.exports = function(options) {
     var result;
     resolverOrder.some(function(resolver) {
       result = resolver(req, options);
-      console.log(resolver, result);
       if (result) return true;
     });
 
