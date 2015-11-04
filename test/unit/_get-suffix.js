@@ -6,7 +6,7 @@ var _getSuffix = require('../../index')._getSuffix;
 describe('_getSuffix', function() {
   before(function() {
     var options = {
-      accepts: ['json', 'html', 'csv', 'txt'] // must be valid mime extensions      
+      accepts: ['json', 'html', 'csv', 'txt'] // must be valid mime extensions 
     };
 
     app.use(bodyParser.json());
