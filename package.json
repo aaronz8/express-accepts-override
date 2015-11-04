@@ -1,6 +1,6 @@
 {
   "name": "express-accepts-override",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Middleware to override accepts header with query or url path file extension",
   "main": "index.js",
   "scripts": {
