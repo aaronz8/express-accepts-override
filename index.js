@@ -1,7 +1,10 @@
 var mime = require('mime-types');
 var url = require('url');
 
-module.exports = function(options) {
+module.exports = exports = function(options) {
+  options = options || {};
+
+  // detect if req.connection exists eg. app.use(acceptsOverride)
   if (options.connection) {
     throw new Error('Call accepts-middleware with options')
   }
@@ -11,12 +14,12 @@ module.exports = function(options) {
       accepts: options.accepts || ['json', 'html', 'csv', 'txt'], // must be valid mime extensions
       query: options.query || 'format', // /path?format=csv
       resolveOrder: options.resolveOrder || ['suffix', 'query', 'header'] // will use first match
-    }
+    };
 
     var resolvers = {
-      header: _getHeader,
-      suffix: _getSuffix,
-      query: _getQuery
+      header: exports._getHeader,
+      suffix: exports._getSuffix,
+      query: exports._getQuery
     };
 
     var resolverOrder = options.resolveOrder.map(function(resolverName) {
@@ -36,7 +39,7 @@ module.exports = function(options) {
   }
 }
 
-function _getSuffix(req, options) {
+exports._getSuffix = function(req, options) {
   var parsedUrl = url.parse(req.url);
   var suffixMatch = parsedUrl.pathname.match(new RegExp("\\.(" + options.accepts.join('|') + ")$"));
   if (suffixMatch) {
@@ -45,11 +48,10 @@ function _getSuffix(req, options) {
       header: mime.lookup(suffixMatch[1]),
       url: url.format(parsedUrl)
     };
-  } else
-    return;
+  }
 }
 
-function _getQuery(req, options) {
+exports._getQuery = function(req, options) {
   var queryMatch = req.query[options.query];
   if (queryMatch && options.accepts.indexOf(queryMatch) !== -1)
     return {
@@ -57,6 +59,6 @@ function _getQuery(req, options) {
     };
 }
 
-function _getHeader(req) {
+exports._getHeader = function(req) {
   return !!(req.get('accept'));
 }

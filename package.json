@@ -4,7 +4,9 @@
   "description": "Middleware to override accepts header with query or url path file extension",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint . && istanbul cover _mocha --dir $CIRCLE_ARTIFACTS -- test/**/*.js -R spec",
+    "coveralls": "cat $CIRCLE_ARTIFACTS/lcov.info | coveralls",
+    "publish-new": "publish"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,16 @@
     "url": "https://github.com/azhang/express-accepts-override/issues"
   },
   "homepage": "https://github.com/azhang/express-accepts-override#readme",
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "coveralls": "^2.11.4",
+    "eslint": "^1.8.0",
+    "express": "^4.13.3",
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.3",
+    "publish": "^0.5.0",
+    "supertest": "^1.1.0"
+  },
   "dependencies": {
     "mime-types": "^2.1.7"
   }
