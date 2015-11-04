@@ -1,4 +1,7 @@
 # express-accepts-override
+
+[![npm version](https://badge.fury.io/js/express-accepts-override.svg)](https://badge.fury.io/js/express-accepts-override)
+
 ## Middleware to override `accepts` header with query or url path file extension
 
 ## Installation
